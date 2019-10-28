@@ -29,7 +29,7 @@ sudo apt-get install python-scapy
 ```
 or using Python's pip library
 ````
-pip install scapy
+pip3 install scapy
 ```
 More details can be found in https://medium.com/@cvaram96/creating-own-network-scanner-using-python-f11a50a5ff77?source=friends_link&sk=64fbe1a530bff1a6ace92d778b232a97
 
