@@ -1,6 +1,7 @@
 #!bin/bash sudo python
 import optparse
-
+import socket
+import sys
 import scapy.all as scapy
 from scapy.layers.inet import IP, ICMP
 
@@ -35,6 +36,15 @@ def getOS(ip_addr):
     else:
         return "Packets could not send successfully"
 
+"""Depends on the target firewall etc. if there are restrictions on scanning"""
+def getPorts(portip):
+    for port in range(1,1025):  
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        result = sock.connect_ex((portip, port))
+        if result == 0:
+            print(f"Port {port}: 	 Open")
+        sock.close()
+
 
 def parseResponse(success_list):
     targets = []
@@ -57,4 +67,6 @@ if options.target is not None:
     broadcast_packets = createPacket(options.target)
     success_packets = transmitPacket(broadcast_packets)
     entries = parseResponse(success_packets)
+    ports = getPorts(options.target)
+    print(ports)
     print_analysis(entries)

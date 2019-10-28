@@ -1,0 +1,8 @@
+#MACOS
+DS_Store
+
+#Virtual environment
+venv
+
+#VSCODE
+.vscode/
