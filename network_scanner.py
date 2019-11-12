@@ -1,9 +1,10 @@
 #!bin/bash sudo python
 import optparse
 
-from scapy.all import ARP,Ether,sr1,srp
-from scapy.layers.inet import IP, ICMP
+#from scapy.all import ARP,Ether,sr1,srp
+#from scapy.layers.inet import IP, ICMP
 
+from network_modules import ARP,Ether,sr1,srp,IP,ICMP
 
 def getArguments():
     parser = optparse.OptionParser()
